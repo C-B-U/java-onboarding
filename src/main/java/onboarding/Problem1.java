@@ -17,16 +17,13 @@ class Problem1 {
             pobiPages.setPerson(pobi);
             crongPages.setPerson(crong);
 
-            System.out.println("pobi");
             int pobiScore = pobiPages.setScore(pobi);
-            System.out.println("crong");
             int crongScore = crongPages.setScore(crong);
 
             int result = win(pobiScore, crongScore);
             return result;
 
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
             return exceptionResult;
         }
     }
@@ -34,7 +31,6 @@ class Problem1 {
     static int win(int pobiScore, int crongScore) {
         if(pobiScore > crongScore) return pobiWinResult;
         if(pobiScore < crongScore) return crongWinResult;
-        System.out.println("pobiScore, crongScore = " + pobiScore +", "+ crongScore);
         return tieResult;
     }
 
@@ -60,12 +56,12 @@ class Problem1 {
 
         private static void leftAndRightPage(List<Integer> person) {
             if (person.get(1) - person.get(0) != 1)
-                throw new IllegalArgumentException("leftAndRightPageException");
+                throw new IllegalArgumentException();
         }
 
         private static void rangeOfPage(List<Integer> person) {
             if (person.get(1) >= lastPageNumber || person.get(0) <= firstPageNumber)
-                throw new IllegalStateException("rangeOfPageException");
+                throw new IllegalStateException();
         }
 
 
@@ -88,7 +84,6 @@ class Problem1 {
         }
 
         private static int setScore(List<Integer> person) {
-            System.out.println("person.get(0), person.get(1) = " + person.get(0) + ", " + person.get(1));
             return Math.max(digitPlus(person.get(0)), digitMultiply(person.get(1)));
         }
     }
