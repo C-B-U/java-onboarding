@@ -59,10 +59,17 @@ class Problem1 {
         return true;
     }
 
-        if (arrAdd(right) > arrAdd(left)) {
-            addMax = 0;
+    private static boolean checkValidationOfPageNumber(List<Integer> list) {
+        if (list.get(LEFT_PAGE) >= 1 && list.get(RIGHT_PAGE) <= 400) {
+            return checkLeftAndRight(list);
         }
+        throw new IllegalArgumentException();
+    }
 
+    private static boolean checkLeftAndRight(List<Integer> list) {
+        if (list.get(LEFT_PAGE) + 1 != list.get(RIGHT_PAGE)) {
+            return false;
+        }
         return true;
     }
 }
