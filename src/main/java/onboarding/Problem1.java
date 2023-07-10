@@ -34,7 +34,8 @@ class Problem1 {
             number /= 10;
         }
 
-        return sum;
+    private static int multifySplitNumber(IntStream intStream) {
+        return intStream.reduce(1, (a,b) -> a*b);
     }
 
     private static IntStream splitPageNumber(int num) {
