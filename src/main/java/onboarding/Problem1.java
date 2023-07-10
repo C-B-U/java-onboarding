@@ -1,7 +1,11 @@
 package onboarding;
 
-import java.util.List;
+import java.util.*;
+import java.util.function.BiPredicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+import static java.util.Arrays.stream;
 class Problem1 {
 
     public static final int EXCEPTION_NUMBER = -1;
@@ -33,15 +37,16 @@ class Problem1 {
         return sum;
     }
 
-    // 곱하기
-    private static int arrMul(int number) {
+    private static IntStream splitPageNumber(int num) {
+        return stream(splitStringArray(num)).mapToInt(Integer::parseInt);
         int sum = 0;
         while (number > 0) {
             sum *= number%10;
             number /= 10;
-        }
+    }
 
-        return sum;
+    private static String[] splitStringArray(final int num) {
+        return Integer.toString(num).split("");
     }
 
     private Boolean checkMax(int right, int left) {
