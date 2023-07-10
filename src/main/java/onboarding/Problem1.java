@@ -52,8 +52,12 @@ class Problem1 {
         throw new IllegalArgumentException();
     }
 
-        int addMax = 0;
-        int mulMax = 1;
+    private static boolean checkListLength(List<Integer> list) {
+        if (list.size() != 2) {
+            throw new IllegalArgumentException();
+        }
+        return true;
+    }
 
         if (arrAdd(right) > arrAdd(left)) {
             addMax = 0;
