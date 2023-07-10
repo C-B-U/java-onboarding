@@ -13,9 +13,9 @@ class Problem1 {
     public static final int RIGHT_PAGE = 1;
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        System.out.println(pobi+ " "+ crong);
-        int pobiRight = pobi.get(0);
-        int pobiLeft = pobi.get(1);
+        if (!(checkValidationOfList(pobi) && checkValidationOfList(crong))) {
+            return EXCEPTION_NUMBER;
+        }
         int crongRight = crong.get(0);
         int crongLeft = crong.get(1);
 
@@ -45,6 +45,12 @@ class Problem1 {
     }
 
     private Boolean checkMax(int right, int left) {
+    private static boolean checkValidationOfList(List<Integer> list) {
+        if (checkListLength(list)) {
+            return checkValidationOfPageNumber(list);
+        }
+        throw new IllegalArgumentException();
+    }
 
         int addMax = 0;
         int mulMax = 1;
