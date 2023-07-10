@@ -21,8 +21,18 @@ class Problem1 {
         if (!(checkValidationOfList(pobi) && checkValidationOfList(crong))) {
             return EXCEPTION_NUMBER;
         }
-        int crongRight = crong.get(0);
-        int crongLeft = crong.get(1);
+
+        int pobiMax = Collections.max(pobi.stream()
+                .map(i -> Math.max(splitPageNumber(i).sum(), multifySplitNumber(splitPageNumber(i))))
+                .collect(Collectors.toList()));
+
+        int crongMax = Collections.max(crong.stream()
+                .map(i -> Math.max(splitPageNumber(i).sum(), multifySplitNumber(splitPageNumber(i))))
+                .collect(Collectors.toList()));
+
+        return getResult(crongMax, pobiMax);
+    }
+
     private static int getResult(int crongMax, int pobiMax) {
         BiPredicate<Integer, Integer> biPredicate =
                 (crong, pobi) -> crong > pobi;
@@ -36,7 +46,6 @@ class Problem1 {
         }
 
         return POBI_WINNER;
-            number /= 10;
     }
 
     private static int multifySplitNumber(IntStream intStream) {
@@ -45,17 +54,12 @@ class Problem1 {
 
     private static IntStream splitPageNumber(int num) {
         return stream(splitStringArray(num)).mapToInt(Integer::parseInt);
-        int sum = 0;
-        while (number > 0) {
-            sum *= number%10;
-            number /= 10;
     }
 
     private static String[] splitStringArray(final int num) {
         return Integer.toString(num).split("");
     }
 
-    private Boolean checkMax(int right, int left) {
     private static boolean checkValidationOfList(List<Integer> list) {
         if (checkListLength(list)) {
             return checkValidationOfPageNumber(list);
