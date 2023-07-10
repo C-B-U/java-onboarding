@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.util.Arrays.stream;
+
 class Problem1 {
 
     public static final int EXCEPTION_NUMBER = -1;
@@ -22,17 +23,21 @@ class Problem1 {
         }
         int crongRight = crong.get(0);
         int crongLeft = crong.get(1);
+    private static int getResult(int crongMax, int pobiMax) {
+        BiPredicate<Integer, Integer> biPredicate =
+                (crong, pobi) -> crong > pobi;
 
-        return 0;
-    }
-
-    // 더하기
-    private static int arrAdd(int number) {
-        int sum = 0;
-        while (number > 0) {
-            sum += number%10;
-            number /= 10;
+        if (crongMax == pobiMax) {
+            return NO_WINNER;
         }
+
+        if (biPredicate.test(crongMax, pobiMax)) {
+            return CRONG_WINNER;
+        }
+
+        return POBI_WINNER;
+            number /= 10;
+    }
 
     private static int multifySplitNumber(IntStream intStream) {
         return intStream.reduce(1, (a,b) -> a*b);
