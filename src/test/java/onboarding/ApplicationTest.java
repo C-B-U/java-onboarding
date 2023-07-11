@@ -1,5 +1,6 @@
 package onboarding;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -49,6 +50,14 @@ class ApplicationTest {
             String cryptogram = "zyelleyz";
             String result = "";
             assertThat(Problem2.solution(cryptogram)).isEqualTo(result);
+        }
+
+        @Test
+        void case3() {
+            String cryptogram = "Abc";
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem2.solution(cryptogram));
+            });
         }
     }
 
