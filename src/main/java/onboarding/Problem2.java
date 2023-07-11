@@ -9,12 +9,22 @@ public class Problem2 {
         if (!checkValidationString(cryptogram)) {
             throw new IllegalArgumentException();
         }
+        return getResult(setStringBuffer(cryptogram));
+    }
 
     private static StringBuffer setStringBuffer(String string) {
         return new StringBuffer(string);
     }
 
+    private static String getResult(StringBuffer strBuffer) {
+        while (true) {
+            if (checkEachString(strBuffer)) {
+                break;
+            }
+        }
+        return strBuffer.toString();
     }
+
     private static Boolean checkEachString(StringBuffer strBuffer) {
         for (int index = START_INDEX; index < strBuffer.length(); index++) {
             if (index != START_INDEX && strBuffer.charAt(index - 1) == strBuffer.charAt(index)) {
