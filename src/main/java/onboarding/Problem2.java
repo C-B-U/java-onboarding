@@ -15,6 +15,16 @@ public class Problem2 {
     }
 
     }
+    private static Boolean checkEachString(StringBuffer strBuffer) {
+        for (int index = START_INDEX; index < strBuffer.length(); index++) {
+            if (index != START_INDEX && strBuffer.charAt(index - 1) == strBuffer.charAt(index)) {
+                strBuffer.deleteCharAt(index - 1); strBuffer.deleteCharAt(index - 1);
+                return CONTINUE;
+            }
+        }
+        return BREAK;
+    }
+
     private static boolean checkValidationString(String cryptogram) {
         if (cryptogram.length() > 1000
                 || cryptogram.length() < 1
