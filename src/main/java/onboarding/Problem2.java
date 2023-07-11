@@ -10,7 +10,10 @@ public class Problem2 {
             throw new IllegalArgumentException();
         }
 
-        return answer;
+    private static StringBuffer setStringBuffer(String string) {
+        return new StringBuffer(string);
+    }
+
     }
     private static boolean checkValidationString(String cryptogram) {
         if (cryptogram.length() > 1000
