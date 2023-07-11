@@ -1,6 +1,10 @@
 package onboarding;
 
 public class Problem2 {
+    public static final int START_INDEX = 0;
+    public static final boolean CONTINUE = false;
+    public static final boolean BREAK = true;
+
     public static String solution(String cryptogram) {
         if (!checkValidationString(cryptogram)) {
             throw new IllegalArgumentException();
