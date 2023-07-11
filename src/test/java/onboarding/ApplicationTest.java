@@ -59,6 +59,22 @@ class ApplicationTest {
                 assertThat(Problem2.solution(cryptogram));
             });
         }
+
+        @Test
+        void case4() {
+            String cryptogram = "";
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem2.solution(cryptogram));
+            });
+        }
+
+        @Test
+        void case5() {
+            String cryptogram = "a".repeat(1001);
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem2.solution(cryptogram));
+            });
+        }
     }
 
     @Nested
