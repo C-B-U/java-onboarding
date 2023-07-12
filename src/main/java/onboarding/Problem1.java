@@ -15,6 +15,7 @@ class Problem1 {
         Stream<String> pobiPage = getPage(pobi);
         Stream<String> crongPage = getPage(crong);
 
+
     }
 
     private static Stream<String> getPage(List<Integer> user) {
@@ -25,6 +26,13 @@ class Problem1 {
         return page.mapToInt(str -> str.chars()
                         .map(Character::getNumericValue)
                         .sum())
+                .max();
+    }
+
+    private static OptionalInt getPageMultiMax(Stream<String> page) {
+        return page.mapToInt(str -> str.chars()
+                        .map(Character::getNumericValue)
+                        .reduce(1, (a, b) -> a * b))
                 .max();
     }
 
