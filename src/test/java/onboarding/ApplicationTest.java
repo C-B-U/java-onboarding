@@ -92,6 +92,29 @@ class ApplicationTest {
             int result = 14;
             assertThat(Problem3.solution(number)).isEqualTo(result);
         }
+
+        @Test
+        void case3() {
+            int number = 0;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem3.solution(number));
+            });
+        }
+
+        @Test
+        void case4() {
+            int number = 10001;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem3.solution(number));
+            });
+        }
+
+        @Test
+        void case5() {
+            int number = 1;
+            int result = 0;
+            assertThat(Problem3.solution(number)).isEqualTo(result);
+        }
     }
 
     @Nested
