@@ -1,17 +1,10 @@
 package onboarding;
 
-import org.mockito.internal.matchers.Null;
 
-import javax.swing.text.html.Option;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.OptionalInt;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static java.util.Collections.max;
+
 
 class Problem1 {
 
@@ -22,12 +15,9 @@ class Problem1 {
 
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        int answer = Integer.MAX_VALUE;
-        Stream<String> pobiPage = getPage(pobi);
-        Stream<String> crongPage = getPage(crong);
 
-        int pobiMaxPage = getMaxPage(getPageSumMax(pobiPage), getPageMultiMax(pobiPage));
-        int crongMaxPage = getMaxPage(getPageSumMax(crongPage), getPageMultiMax(crongPage));
+        int pobiMaxPage = getMaxPage(getPageSumMax(pobi), getPageMultiMax(pobi));
+        int crongMaxPage = getMaxPage(getPageSumMax(crong), getPageMultiMax(crong));
 
         return getWinner(pobiMaxPage, crongMaxPage);
 
@@ -38,14 +28,16 @@ class Problem1 {
         return user.stream().map(Object::toString);
     }
 
-    private static int getPageSumMax(Stream<String> page) {
+    private static int getPageSumMax(List<Integer> user) {
+        Stream<String> page = getPage(user);
         return page.mapToInt(str -> str.chars()
                         .map(Character::getNumericValue)
                         .sum())
                 .max().orElseThrow(NullPointerException::new);
     }
 
-    private static int getPageMultiMax(Stream<String> page) {
+    private static int getPageMultiMax(List<Integer> user) {
+        Stream<String> page = getPage(user);
         return page.mapToInt(str -> str.chars()
                         .map(Character::getNumericValue)
                         .reduce(1, (a, b) -> a * b))
