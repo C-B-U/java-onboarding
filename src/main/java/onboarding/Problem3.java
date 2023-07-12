@@ -15,6 +15,19 @@ public class Problem3 {
         int answer = getResult(number+1);
         return answer;
     }
+
+    private static int getResult(int length) {
+        int count = 0;
+        for(int number = 1; number < length; number++) {
+            count += String.valueOf(number).chars()
+                    .filter(num -> num == TRHEE
+                            || num == SIX
+                            || num == NINE)
+                    .count();
+        }
+        return count;
+    }
+
     private static boolean checkValidationOfNumber(int number) {
         if(number < MINIMUM_NUMBER || number > MAXIMUM_NUMBER) {
             throw new IllegalArgumentException();
