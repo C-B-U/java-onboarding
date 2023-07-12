@@ -57,17 +57,26 @@ class Problem1 {
     }
 
     private static int getWinner(int pobiMaxPage, int crongMaxPage) {
-        if (pobiMaxPage > crongMaxPage)
-            return CRONG_WIN;
-        else if (pobiMaxPage == crongMaxPage)
-            return NO_WINNER;
-        else
+        if (isPobiWin(pobiMaxPage,crongMaxPage))
             return POBI_WIN;
+
+        if (isCrongWin(pobiMaxPage, crongMaxPage))
+            return CRONG_WIN;
+
+        return NO_WINNER;
     }
 
+    private static boolean isPobiWin(int pobiMaxPage, int crongMaxPage){
+        if (pobiMaxPage > crongMaxPage){
+            return true;
+        }
+        return false;
+    }
 
-
-
-
-
+    private static boolean isCrongWin(int pobiMaxPage, int crongMaxPage){
+        if (crongMaxPage > pobiMaxPage){
+            return true;
+        }
+        return false;
+    }
 }
