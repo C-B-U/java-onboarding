@@ -21,5 +21,13 @@ class Problem1 {
         return user.stream().map(Object::toString);
     }
 
+    private static OptionalInt getPageSumMax(Stream<String> page) {
+        return page.mapToInt(str -> str.chars()
+                        .map(Character::getNumericValue)
+                        .sum())
+                .max();
+    }
+
+
 
 }
