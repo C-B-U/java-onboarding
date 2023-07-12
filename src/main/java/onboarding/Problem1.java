@@ -71,4 +71,11 @@ class Problem1 {
         }
         return false;
     }
+
+    private static boolean validateLeftRightPage (List<Integer> pobi, List<Integer> crong ){
+        if(pobi.get(0) != (pobi.get(1)+1) || crong.get(0) != (crong.get(1)+1)){
+            return false;
+        }
+        return true;
+    }
 }
