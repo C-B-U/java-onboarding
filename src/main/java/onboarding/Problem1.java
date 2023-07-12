@@ -96,4 +96,11 @@ class Problem1 {
         return false;
     }
 
+    private static boolean isNotCorrectPage(List<Integer> user) {
+        if (validateLeftRightPage(user) && validateStartOrEndPage(user) && validatePageLength(user)) {
+            return false;
+        }
+        return true;
+    }
+
 }
