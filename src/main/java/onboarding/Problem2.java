@@ -6,11 +6,22 @@ import java.util.Objects;
 
 public class Problem2 {
     public static String solution(String cryptogram) {
+        validateCrypLength(cryptogram);
+
         Deque<Character> cryptogramStack = convertStringToStack(cryptogram);
         Deque<Character> resultStack = removeDuplicateChar(cryptogramStack);
 
         return resultPassword(resultStack);
     }
+
+    private static boolean validateCrypLength(String cryptogram) {
+        if (cryptogram.length() < 1 || cryptogram.length() > 1000){
+            throw new IllegalArgumentException("1이상 1000이하인 문자열이어야합니다.");
+        }
+        return true;
+    }
+
+
 
     private static Deque<Character> convertStringToStack(String cryptogram){
         Deque<Character> stack = new ArrayDeque<Character>();
