@@ -21,6 +21,16 @@ public class Problem2 {
         return true;
     }
 
+    private static boolean validateCrypSmallLetter(String cryptogram) {
+        for (char word : cryptogram.toCharArray()){
+            if (!Character.isLowerCase(word)){
+                throw new IllegalArgumentException("cryptogram은 소문자로만 이루어져 있습니다.");
+            }
+        }
+        return true;
+    }
+
+
 
 
     private static Deque<Character> convertStringToStack(String cryptogram){
