@@ -4,34 +4,17 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Objects;
 
+import static onboarding.problem2.CrypErrorHandler.checkCryptogram;
+
 public class Problem2 {
     public static String solution(String cryptogram) {
-        validateCrypLength(cryptogram);
 
+        checkCryptogram(cryptogram);
         Deque<Character> cryptogramStack = convertStringToStack(cryptogram);
         Deque<Character> resultStack = removeDuplicateChar(cryptogramStack);
 
         return resultPassword(resultStack);
     }
-
-    private static boolean validateCrypLength(String cryptogram) {
-        if (cryptogram.length() < 1 || cryptogram.length() > 1000){
-            throw new IllegalArgumentException("1이상 1000이하인 문자열이어야합니다.");
-        }
-        return true;
-    }
-
-    private static boolean validateCrypSmallLetter(String cryptogram) {
-        for (char word : cryptogram.toCharArray()){
-            if (!Character.isLowerCase(word)){
-                throw new IllegalArgumentException("cryptogram은 소문자로만 이루어져 있습니다.");
-            }
-        }
-        return true;
-    }
-
-
-
 
     private static Deque<Character> convertStringToStack(String cryptogram){
         Deque<Character> stack = new ArrayDeque<Character>();
