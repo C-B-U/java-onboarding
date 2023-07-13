@@ -1,14 +1,13 @@
 package onboarding.problem1;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static onboarding.problem1.util.ErrorHandler.*;
+import static onboarding.problem1.util.PageHandler.*;
 import static onboarding.problem1.util.findWinner.*;
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
@@ -73,5 +72,22 @@ public class problem1Test {
             assertThat(getWinner(pobiMaxPage, crongMaxPage)).isEqualTo(NO_WINNER);
         }
 
+    }
+
+    @Nested
+    class PageHandlerTest {
+
+
+        @Test
+        void checkMaxPage() {
+            List<Integer> user = List.of(97, 98);
+
+            assertAll(
+                    () -> assertThat(getPageSumMax(user)).isEqualTo(17),
+                    () -> assertThat(getPageMultiMax(user)).isEqualTo(72),
+                    () -> assertThat(getMaxPage(getPageSumMax(user), getPageMultiMax(user))).isEqualTo(72)
+            );
+
+        }
     }
 }
