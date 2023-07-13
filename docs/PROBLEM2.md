@@ -21,3 +21,11 @@
 | --- | --- |
 | "browoanoommnaon" | "brown" |
 | "zyelleyz" | "" |
+
+## 기능 목록
+1. cryptogram에 중복된 문자열을 제거 메소드
+
+## 에러 처리
+
+1. cryptogram의 길이가 1이상 1000이하가 아니면 에러
+2. cryptogram이 소문자로만 이루어져 있지 않으면 에러
