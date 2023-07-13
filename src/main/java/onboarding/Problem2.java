@@ -1,7 +1,6 @@
 package onboarding;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.Objects;
 
@@ -25,13 +24,11 @@ public class Problem2 {
         Deque<Character> resultStack = new ArrayDeque<Character>();
         while (!cryptogram.isEmpty()){
                Character word = cryptogram.removeFirst();
-                // 결과 stack이 비어있지 않고 cryptogram의 마지막 요소와 word가 같으면(중복) 마지막 요소 제가
-               if (!resultStack.isEmpty() && Objects.equals(word, resultStack.peekLast())){
+               if (isDuplicate(resultStack, word)){
                    resultStack.removeLast();
                    continue;
                }
                resultStack.addLast(word);
-
         }
         return resultStack;
     }
@@ -42,5 +39,9 @@ public class Problem2 {
             password.append(resultStack.removeFirst());
         }
         return password.toString();
+    }
+
+    private static boolean isDuplicate(Deque<Character> resultStack, Character word) {
+        return !resultStack.isEmpty() && Objects.equals(word, resultStack.peekLast());
     }
 }
