@@ -23,7 +23,9 @@
 | "zyelleyz" | "" |
 
 ## 기능 목록
-1. cryptogram에 중복된 문자열을 제거 메소드
+
+1. String을 Stack으로 변경하는 메서드
+2. cryptogram에 중복된 문자열을 제거 메소드
 
 ## 에러 처리
 
