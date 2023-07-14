@@ -3,6 +3,9 @@ package onboarding;
 public class Problem3 {
 
     public static final String NUMBER_RANGE_ONE_TO_THOUSAND = "숫자의 범위는 1부터 10000 이하입니다.";
+    public static final char TREE = '3';
+    public static final char SIX = '6';
+    public static final char NINE = '9';
     public static int solution(int number) {
         validateNumberRange(number);
         return getCount(number);
@@ -19,12 +22,16 @@ public class Problem3 {
         for (int i = 1; i <= number; i++){
             String num = String.valueOf(i);
             for (int j = 0; j < num.length(); j++){
-                if (num.charAt(j) == '3' || num.charAt(j) == '6' || num.charAt(j) == '9'){
+                if (isInclude369(num, j)){
                     count++;
                 }
             }
         }
         return count;
+    }
+
+    private static boolean isInclude369(String num, int j) {
+        return num.charAt(j) == TREE || num.charAt(j) == SIX || num.charAt(j) == NINE;
     }
 
 }
