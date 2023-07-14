@@ -1,5 +1,7 @@
 package onboarding;
 
+import java.util.stream.IntStream;
+
 public class Problem3 {
 
     public static final String NUMBER_RANGE_ONE_TO_THOUSAND = "숫자의 범위는 1부터 10000 이하입니다.";
@@ -38,4 +40,16 @@ public class Problem3 {
     private static boolean isInclude369(String num, int j) {
         return num.charAt(j) == TREE || num.charAt(j) == SIX || num.charAt(j) == NINE;
     }
+
+
+    // 람다식으로 바꾸었을 때
+    public static int getResult(int number){
+        return IntStream.rangeClosed(1, number)
+                .mapToObj(String::valueOf)
+                .mapToInt(num -> Math.toIntExact(num.chars()
+                        .filter(ch -> ch == TREE || ch == SIX || ch == NINE)
+                        .count()))
+                .sum();
+    }
+
 }
