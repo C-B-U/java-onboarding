@@ -21,10 +21,15 @@ public class Problem3 {
         int count = 0;
         for (int i = 1; i <= number; i++){
             String num = String.valueOf(i);
-            for (int j = 0; j < num.length(); j++){
-                if (isInclude369(num, j)){
-                    count++;
-                }
+            count = upCount(count, num);
+        }
+        return count;
+    }
+
+    private static int upCount(int count, String num) {
+        for (int j = 0; j < num.length(); j++){
+            if (isInclude369(num, j)){
+                count++;
             }
         }
         return count;
@@ -33,5 +38,4 @@ public class Problem3 {
     private static boolean isInclude369(String num, int j) {
         return num.charAt(j) == TREE || num.charAt(j) == SIX || num.charAt(j) == NINE;
     }
-
 }
