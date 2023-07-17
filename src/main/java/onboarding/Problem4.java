@@ -9,6 +9,22 @@ public class Problem4 {
         return getResult(word);
     }
 
+    public static String getResult(String word){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < word.length(); i++){
+            char ch = word.charAt(i);
+            if (ch == ' '){
+                sb.append(' ');
+            }else if (isLower(ch)) {
+                sb.append(toLower(mapAlphabet.get(toUpper(ch))));
+            }else{
+                sb.append(mapAlphabet.get(ch));
+            }
+
+        }
+        return sb.toString();
+    }
+
 
     public static boolean isLower(char ch){
         return ch >= 'a' && ch <= 'z';
