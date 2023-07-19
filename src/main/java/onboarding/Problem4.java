@@ -6,8 +6,7 @@ public class Problem4 {
     public static final int LOWER_CASE = 97;
 
     public static String solution(String word) {
-        String answer = "";
-        return answer;
+        return getResult(wordToCharArray(word));
     }
 
     public static String getResult(char[] wordArray) {
