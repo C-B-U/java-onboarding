@@ -10,3 +10,11 @@ public class Problem4 {
         return answer;
     }
 }
+
+    public static boolean checkValidation(String word) {
+        if (word.length() < 1 || word.length() > 1000) {
+            return false;
+        }
+        return true;
+    }
+}
