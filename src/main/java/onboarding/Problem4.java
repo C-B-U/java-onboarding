@@ -9,6 +9,21 @@ public class Problem4 {
         String answer = "";
         return answer;
     }
+
+    public static String getResult(char[] wordArray) {
+        String result = "";
+
+        for (int index=0; index<wordArray.length; index++) {
+            if (!(Character.isUpperCase(wordArray[index]) || Character.isLowerCase(wordArray[index]))) {
+                result = result + ' ';
+                continue;
+            }
+            result += String.valueOf((char) ((checkAlphabetCase(wordArray[index]) + 25)
+                    - Math.abs(checkAlphabetCase(wordArray[index]) - wordArray[index])));
+        }
+        return result;
+    }
+
     private static int checkAlphabetCase(char word) {
         return Character.isUpperCase(word) ? UPPER_CASE : LOWER_CASE;
     }
