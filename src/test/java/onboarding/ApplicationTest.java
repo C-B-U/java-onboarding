@@ -125,6 +125,29 @@ class ApplicationTest {
             String result = "R olev blf";
             assertThat(Problem4.solution(word)).isEqualTo(result);
         }
+
+        @Test
+        void case2() {
+            String word = "a".repeat(1001);
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem4.solution(word));
+            });
+        }
+
+        @Test
+        void case3() {
+            String word = "";
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem4.solution(word));
+            });
+        }
+
+        @Test
+        void case4() {
+            String word = "Happy";
+            String result = "Szkkb";
+            assertThat(Problem4.solution(word)).isEqualTo(result);
+        }
     }
 
     @Nested
