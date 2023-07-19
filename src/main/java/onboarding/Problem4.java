@@ -13,6 +13,13 @@ public class Problem4 {
         return Character.isUpperCase(word) ? UPPER_CASE : LOWER_CASE;
     }
 
+    public static char[] wordToCharArray(String word) {
+        if (checkValidation(word)) {
+            return word.toCharArray();
+        }
+        throw new IllegalArgumentException();
+    }
+
     public static boolean checkValidation(String word) {
         if (word.length() < 1 || word.length() > 1000) {
             return false;
