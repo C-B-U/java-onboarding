@@ -9,7 +9,9 @@ public class Problem4 {
         String answer = "";
         return answer;
     }
-}
+    private static int checkAlphabetCase(char word) {
+        return Character.isUpperCase(word) ? UPPER_CASE : LOWER_CASE;
+    }
 
     public static boolean checkValidation(String word) {
         if (word.length() < 1 || word.length() > 1000) {
