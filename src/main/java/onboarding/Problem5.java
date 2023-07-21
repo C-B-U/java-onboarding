@@ -5,7 +5,16 @@ import java.util.List;
 
 public class Problem5 {
     public static List<Integer> solution(int money) {
-        List<Integer> answer = Collections.emptyList();
+        if (!checkValiation(money)) {
+            throw new IllegalArgumentException();
+        }
         return answer;
+    }
+
+    private static boolean checkValiation(int money) {
+        if(money < 1 || money > 1000000) {
+            return false;
+        }
+        return true;
     }
 }
