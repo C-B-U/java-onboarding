@@ -165,6 +165,22 @@ class ApplicationTest {
             List<Integer> result = List.of(0, 1, 1, 0, 0, 0, 0, 0, 0);
             assertThat(Problem5.solution(money)).isEqualTo(result);
         }
+
+        @Test
+        void case3() {
+            int money = 1111111;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem5.solution(money));
+            });
+        }
+
+        @Test
+        void case4() {
+            int money = 0;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem5.solution(money));
+            });
+        }
     }
 
     @Nested
