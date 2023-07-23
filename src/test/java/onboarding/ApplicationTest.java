@@ -1,5 +1,6 @@
 package onboarding;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +51,30 @@ class ApplicationTest {
             String result = "";
             assertThat(Problem2.solution(cryptogram)).isEqualTo(result);
         }
+
+        @Test
+        void case3() {
+            String cryptogram = "Abc";
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem2.solution(cryptogram));
+            });
+        }
+
+        @Test
+        void case4() {
+            String cryptogram = "";
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem2.solution(cryptogram));
+            });
+        }
+
+        @Test
+        void case5() {
+            String cryptogram = "a".repeat(1001);
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem2.solution(cryptogram));
+            });
+        }
     }
 
     @Nested
@@ -67,6 +92,29 @@ class ApplicationTest {
             int result = 14;
             assertThat(Problem3.solution(number)).isEqualTo(result);
         }
+
+        @Test
+        void case3() {
+            int number = 0;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem3.solution(number));
+            });
+        }
+
+        @Test
+        void case4() {
+            int number = 10001;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem3.solution(number));
+            });
+        }
+
+        @Test
+        void case5() {
+            int number = 1;
+            int result = 0;
+            assertThat(Problem3.solution(number)).isEqualTo(result);
+        }
     }
 
     @Nested
@@ -75,6 +123,29 @@ class ApplicationTest {
         void case1() {
             String word = "I love you";
             String result = "R olev blf";
+            assertThat(Problem4.solution(word)).isEqualTo(result);
+        }
+
+        @Test
+        void case2() {
+            String word = "a".repeat(1001);
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem4.solution(word));
+            });
+        }
+
+        @Test
+        void case3() {
+            String word = "";
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem4.solution(word));
+            });
+        }
+
+        @Test
+        void case4() {
+            String word = "Happy";
+            String result = "Szkkb";
             assertThat(Problem4.solution(word)).isEqualTo(result);
         }
     }
@@ -93,6 +164,22 @@ class ApplicationTest {
             int money = 15_000;
             List<Integer> result = List.of(0, 1, 1, 0, 0, 0, 0, 0, 0);
             assertThat(Problem5.solution(money)).isEqualTo(result);
+        }
+
+        @Test
+        void case3() {
+            int money = 1111111;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem5.solution(money));
+            });
+        }
+
+        @Test
+        void case4() {
+            int money = 0;
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                assertThat(Problem5.solution(money));
+            });
         }
     }
 
