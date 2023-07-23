@@ -54,8 +54,19 @@ public class Problem6 {
                 .map(form -> form.get(0))
                 .collect(Collectors.toList());
         for (int i = 0; i < email.size(); i++){
-            if (email.get(i).length() < 1 || email.get(i).length() >= 20){
-                throw new IllegalArgumentException("이메일 길이는 1자 이상 20자 미만입니다.");
+            if (email.get(i).length() < 11 || email.get(i).length() >= 20){
+                throw new IllegalArgumentException("이메일 길이는 11자 이상 20자 미만입니다.");
+            }
+        }
+    }
+
+    public static void validNickNameLength(List<List<String>> forms){
+        List<String> nickName = forms.stream()
+                .map(form -> form.get(1))
+                .collect(Collectors.toList());
+        for (int i = 0; i < nickName.size(); i++){
+            if (nickName.get(i).length() < 1 || nickName.get(i).length() >= 20){
+                throw new IllegalArgumentException("닉네임 길이는 1자 이상 20자 미만입니다.");
             }
         }
     }
