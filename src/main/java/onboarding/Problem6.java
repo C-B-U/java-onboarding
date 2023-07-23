@@ -44,12 +44,20 @@ public class Problem6 {
         List<String> email = forms.stream()
                 .map(form -> form.get(0))
                 .collect(Collectors.toList());
-        for (int i = 0; i < email.size(); i++){
-            if(!email.contains("email.com")){
-                throw new IllegalArgumentException("이메일은 'email.com' 도메인만 가능합니다.")
-            }
+        if(!email.contains("email.com")){
+            throw new IllegalArgumentException("이메일은 'email.com' 도메인만 가능합니다.");
         }
     }
 
+    public static void validEmailLength(List<List<String>> forms){
+        List<String> email = forms.stream()
+                .map(form -> form.get(0))
+                .collect(Collectors.toList());
+        for (int i = 0; i < email.size(); i++){
+            if (email.get(i).length() < 1 || email.get(i).length() >= 20){
+                throw new IllegalArgumentException("이메일 길이는 1자 이상 20자 미만입니다.");
+            }
+        }
+    }
 
 }
