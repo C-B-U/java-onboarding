@@ -39,4 +39,17 @@ public class Problem6 {
             throw new IllegalArgumentException("크루는 1명 이상 10,000명 이하입니다.");
         }
     }
+
+    public static void validEmailType(List<List<String>> forms){
+        List<String> email = forms.stream()
+                .map(form -> form.get(0))
+                .collect(Collectors.toList());
+        for (int i = 0; i < email.size(); i++){
+            if(!email.contains("email.com")){
+                throw new IllegalArgumentException("이메일은 'email.com' 도메인만 가능합니다.")
+            }
+        }
+    }
+
+
 }
