@@ -1,6 +1,7 @@
 package onboarding;
 
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Problem6 {
@@ -67,6 +68,18 @@ public class Problem6 {
         for (int i = 0; i < nickName.size(); i++){
             if (nickName.get(i).length() < 1 || nickName.get(i).length() >= 20){
                 throw new IllegalArgumentException("닉네임 길이는 1자 이상 20자 미만입니다.");
+            }
+        }
+    }
+
+    public static void validKoreanNickName(List<List<String>> forms) {
+        List<String> nickName = forms.stream()
+                .map(form -> form.get(1))
+                .collect(Collectors.toList());
+        String regex = "^[가-힣]*$";
+        for (int i = 0; i < nickName.size(); i++) {
+            if (!Pattern.matches(regex, nickName.get(i))) {
+                throw new IllegalArgumentException("닉네임은 한글만 가능합니다.");
             }
         }
     }
