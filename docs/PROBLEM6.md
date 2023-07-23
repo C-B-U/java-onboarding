@@ -21,3 +21,17 @@
 | forms | result |
 | --- | --- |
 | [ ["jm@email.com", "제이엠"], ["jason@email.com", "제이슨"], ["woniee@email.com", "워니"], ["mj@email.com", "엠제이"], ["nowm@email.com", "이제엠"] ] | ["jason@email.com", "jm@email.com", "mj@email.com"] |
+
+
+## 기능 목록
+
+1. 두 글자 이상 연속 판단 메서드
+2. 중복된 닉네임의 이메일을 저장하는 메서드
+3. 결과 오름차순 정렬 후 중복 메서드
+
+## 에러 처리
+
+1. 크루의 개수 에러 처리
+2. 이메일 형식 에러 처리
+3. 이메일 길이 에러 처리
+4. 닉네임 길이 에러 처리
