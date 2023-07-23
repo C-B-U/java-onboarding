@@ -12,6 +12,11 @@ public class Problem6 {
                         form -> form.get(0)
                 ));
 
+        List<String> nickNames = forms.stream()
+                .map(form -> form.get(1))
+                .collect(Collectors.toList());
+
+
 
         return answer;
     }
