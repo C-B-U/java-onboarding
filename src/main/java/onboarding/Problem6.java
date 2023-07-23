@@ -33,4 +33,10 @@ public class Problem6 {
 
         return answer;
     }
+
+    public static void crewCountErrorHandler(List<List<String>> forms){
+        if((long) forms.size() < 1 || (long) forms.size() > 10000){
+            throw new IllegalArgumentException("크루는 1명 이상 10,000명 이하입니다.");
+        }
+    }
 }
