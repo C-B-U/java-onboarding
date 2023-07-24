@@ -16,6 +16,7 @@ public class Crews {
 
 
     public List<Crew> mapCrewsList(List<List<String>> forms) {
+        crewCountErrorHandler(forms);
         return forms.stream()
                 .map(form -> new Crew(form.get(0), form.get(1)))
                 .collect(Collectors.toList());
@@ -41,6 +42,12 @@ public class Crews {
                 .sorted()
                 .distinct()
                 .collect(Collectors.toList());
+    }
+
+    private void crewCountErrorHandler(List<List<String>> forms){
+        if((long) forms.size() < 1 || (long) forms.size() > 10000){
+            throw new IllegalArgumentException("크루는 1명 이상 10,000명 이하입니다.");
+        }
     }
 }
 
