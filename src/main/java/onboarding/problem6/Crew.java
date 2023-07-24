@@ -43,6 +43,13 @@ public class Crew {
         }
     }
 
+    private void validKoreanNickName(){
+        String regex = "^[가-힣]*$";
+        if (!Pattern.matches(regex, name)){
+            throw new IllegalArgumentException("닉네임은 한글만 가능합니다.");
+        }
+    }
+
 
 
 
