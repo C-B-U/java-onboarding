@@ -37,6 +37,14 @@ public class Crew {
         }
     }
 
+    private void validNickNameLength(){
+        if (name.length() < 1 || name.length() >= 20){
+            throw new IllegalArgumentException("닉네임 길이는 1자 이상 20자 미만입니다.");
+        }
+    }
+
+
+
 
 
 
