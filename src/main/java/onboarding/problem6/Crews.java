@@ -28,6 +28,16 @@ public class Crews {
 
 
     public List<String> getResultEmail() {
+        return duplicateNames().stream()
+                .flatMap(filterNickname -> crews.stream()
+                        .filter(crew -> filterNickname.equals(crew.getName()))
+                        .map(Crew::getEmail))
+                .sorted()
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    private List<String> duplicateNames(){
         return nicknames.stream()
                 .filter(nickname -> {
                     List<String> separated = new NameSeparate(nickname).getSeparatedNickname();
@@ -35,13 +45,7 @@ public class Crews {
                             .map(Crew::getName)
                             .filter(name -> !name.equals(nickname)) // Exclude the same nickname
                             .anyMatch(name -> separated.stream().anyMatch(name::contains));
-                })
-                .flatMap(filterNickname -> crews.stream()
-                        .filter(crew -> filterNickname.equals(crew.getName()))
-                        .map(Crew::getEmail))
-                .sorted()
-                .distinct()
-                .collect(Collectors.toList());
+                }).collect(Collectors.toList());
     }
 
     private void crewCountErrorHandler(List<List<String>> forms){
