@@ -8,13 +8,14 @@ public class Crew {
     private String name;
 
     Crew(String email, String name) {
+
+        this.email = email;
+        this.name = name;
+
         validEmailType();
         validEmailLength();
-        this.email = email;
-
         validNickNameLength();
         validKoreanNickName();
-        this.name = name;
     }
 
     public String getName() {
@@ -43,17 +44,10 @@ public class Crew {
         }
     }
 
-    private void validKoreanNickName(){
+    private void validKoreanNickName() {
         String regex = "^[가-힣]*$";
-        if (!Pattern.matches(regex, name)){
+        if (!Pattern.matches(regex, name)) {
             throw new IllegalArgumentException("닉네임은 한글만 가능합니다.");
         }
     }
-
-
-
-
-
-
-
 }
