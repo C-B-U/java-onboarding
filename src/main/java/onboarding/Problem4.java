@@ -1,8 +1,10 @@
 package onboarding;
 
+import onboarding.problem4.Sentence;
+
 public class Problem4 {
     public static String solution(String word) {
-        String answer = "";
-        return answer;
+        return new Sentence(word).getResult();
     }
+
 }

@@ -1,10 +1,12 @@
 package onboarding;
 
-import java.util.List;
+import onboarding.problem6.Crews;
+
+import java.util.*;
 
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
-        List<String> answer = List.of("answer");
-        return answer;
+        return new Crews(forms).getResultEmail();
     }
+
 }
